@@ -1,0 +1,22 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/portfolio/work/:id",
+      "destination": "/portfolio/index.html"
+    },
+    {
+      "source": "/portfolio/:path*",
+      "destination": "/portfolio/index.html"
+    },
+    {
+      "source": "/work/:id",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}

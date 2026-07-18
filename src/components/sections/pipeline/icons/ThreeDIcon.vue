@@ -1,0 +1,58 @@
+<template>
+  <!-- Hand-drawn 3D cube. -->
+  <svg
+    class="h-full w-full"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <defs>
+      <filter id="td1" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.045"
+          numOctaves="2"
+          seed="7"
+          result="n"
+        />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" />
+      </filter>
+      <filter id="td2" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.05"
+          numOctaves="2"
+          seed="17"
+          result="n"
+        />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" />
+      </filter>
+    </defs>
+    <g
+      stroke="currentColor"
+      stroke-width="1.4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      opacity="0.5"
+      filter="url(#td1)"
+    >
+      <path d="M12 3l8 4.5v9l-8 4.5l-8 -4.5v-9z" />
+      <path d="M12 12l8 -4.5" />
+      <path d="M12 12v9" />
+      <path d="M12 12l-8 -4.5" />
+    </g>
+    <g
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      filter="url(#td2)"
+    >
+      <path d="M12 3l8 4.5v9l-8 4.5l-8 -4.5v-9z" />
+      <path d="M12 12l8 -4.5" />
+      <path d="M12 12v9" />
+      <path d="M12 12l-8 -4.5" />
+    </g>
+  </svg>
+</template>

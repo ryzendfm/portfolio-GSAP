@@ -1,0 +1,56 @@
+<template>
+  <!-- Hand-drawn play / film icon. -->
+  <svg
+    class="h-full w-full"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <defs>
+      <filter id="mo1" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.045"
+          numOctaves="2"
+          seed="2"
+          result="n"
+        />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" />
+      </filter>
+      <filter id="mo2" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.05"
+          numOctaves="2"
+          seed="14"
+          result="n"
+        />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" />
+      </filter>
+    </defs>
+    <g
+      stroke="currentColor"
+      stroke-width="1.4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      opacity="0.5"
+      filter="url(#mo1)"
+    >
+      <path d="M7 4v16l13 -8z" />
+      <path d="M2.5 6v12" />
+      <path d="M4.5 5v14" />
+    </g>
+    <g
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      filter="url(#mo2)"
+    >
+      <path d="M7 4v16l13 -8z" />
+      <path d="M2.5 6v12" />
+      <path d="M4.5 5v14" />
+    </g>
+  </svg>
+</template>
