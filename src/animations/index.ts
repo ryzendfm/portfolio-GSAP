@@ -257,6 +257,9 @@ const animateLoadingPath = (
         samsungErrorModal(isSamsung);
         document.body.classList.remove('stop-scrolling');
         window.scrollTo(0, 0);
+        lenis.resize();
+        ScrollTrigger.sort();
+        ScrollTrigger.refresh();
       }, 120);
     },
   });

@@ -1,6 +1,6 @@
 <template>
   <section id="stats" class="common-padding mb-20">
-    <div class="border-flax-smoke-300 grid grid-cols-1 gap-8 border-t pt-12 md:grid-cols-3">
+    <div class="border-flax-smoke-300 grid grid-cols-1 gap-8 border-t pt-12 sm:grid-cols-2">
       <div
         v-for="(stat, i) in stats"
         :key="stat.label"

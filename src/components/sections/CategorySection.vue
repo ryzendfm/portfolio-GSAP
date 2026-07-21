@@ -143,6 +143,7 @@
             scrub: 0.6,
             pin: true,
             anticipatePin: 1,
+            refreshPriority: 5,
           },
         });
 

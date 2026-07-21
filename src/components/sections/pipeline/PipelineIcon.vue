@@ -4,9 +4,12 @@
   >
     <button
       type="button"
-      class="flex-center relative rounded-full transition-all duration-200 hover:scale-108 focus:scale-108 active:scale-95"
-      :class="{ 'scale-108': active }"
-      :style="tileStyle"
+      class="flex-center relative rounded-full transition-all duration-300 hover:scale-110 focus:scale-110 active:scale-95 cursor-pointer"
+      :class="{ 'scale-110': active }"
+      :style="[
+        tileStyle,
+        hovered || active ? { boxShadow: `0 0 28px ${domain.color}70, 0 0 10px ${domain.color}a0` } : {}
+      ]"
       :aria-label="domain.label"
       :aria-pressed="mode === 'tap' ? active : undefined"
       @click="onClick"
@@ -15,9 +18,9 @@
       @focus="onEnter"
       @blur="onLeave"
     >
-      <!-- Circular tile: solid sage-green background, no colored border. -->
+      <!-- Circular tile: solid sage-green background -->
       <span
-        class="absolute inset-0 rounded-full"
+        class="absolute inset-0 rounded-full transition-colors duration-300"
         :style="{
           backgroundColor: '#b6b79f',
         }"
@@ -28,15 +31,15 @@
       </span>
     </button>
 
-    <!-- Label — absolutely positioned so it never shifts surrounding layout.
-         `tap` renders a pill below the tile; `hover` a tooltip above it. -->
+    <!-- Label — centered absolutely so it never shifts surrounding layout. -->
     <span
       ref="labelRef"
-      class="heading-6 text-flax-smoke-100 pointer-events-none absolute left-1/2 z-10 rounded-full px-3 py-1 font-semibold whitespace-nowrap opacity-0"
-      :class="mode === 'tap' ? 'top-full mt-2' : 'bottom-full mb-2'"
+      class="heading-6 pointer-events-none absolute left-1/2 -translate-x-1/2 z-20 rounded-full px-4 py-1.5 font-bold uppercase tracking-wider text-xs whitespace-nowrap opacity-0 shadow-lg"
+      :class="mode === 'tap' || tooltipPos === 'bottom' ? 'top-full mt-3' : 'bottom-full mb-3'"
       :style="{
-        backgroundColor: '#1c1d16',
-        border: `1px solid ${domain.color}66`,
+        backgroundColor: '#141511',
+        border: `1.5px solid ${domain.color}`,
+        color: domain.color,
       }"
       role="tooltip"
     >
@@ -63,8 +66,10 @@
       mode?: 'tap' | 'hover';
       // Tile diameter in px. Kept >= 44 so the tap target meets a11y minimums.
       size?: number;
+      // Position of hover/active tooltip pill.
+      tooltipPos?: 'top' | 'bottom';
     }>(),
-    { revealed: true, active: false, mode: 'hover', size: 56 },
+    { revealed: true, active: false, mode: 'hover', size: 56, tooltipPos: 'top' },
   );
 
   const emit = defineEmits<{ (e: 'toggle', id: string): void }>();

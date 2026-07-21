@@ -41,7 +41,7 @@
           <span
             v-for="item in entry.items"
             :key="item"
-            class="border-flax-smoke-500/60 text-flax-smoke-700 heading-6 rounded-full border px-4 py-2 font-medium"
+            class="border-flax-smoke-500/60 text-flax-smoke-700 rounded-full border px-3 py-1 text-xs font-semibold sm:px-3.5 sm:py-1.5 sm:text-sm md:px-4 md:py-2 md:text-base md:font-medium"
           >
             {{ item }}
           </span>

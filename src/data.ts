@@ -201,7 +201,6 @@ const locationCountry = 'Tamil Nadu, India';
 const stats: statType[] = [
   { value: '150+', label: 'LeetCode Problems' },
   { value: 'Top 10', label: 'HackIndia 2026' },
-  { value: '70-90 t/s', label: 'Fine-tuned model on RTX 3050' },
 ];
 
 // The 6 domains ("planets"). `color` is the per-domain neon accent,
